@@ -4,8 +4,10 @@ La electromiografia (EMG) mide y analiza la actividad electrica de los musculos,
 
 ### Ventana Hamming
 La ventana Hamming es una funcion matematica, util para procesar las señales y minimizar las distorsiones causadas por la discontinuidad en los bordes de la señal analizada cuando necesitamos dividirla. La ventana hace que se dismuya el efecto de fuga espectral o perdida de datos, que puede ocurrir cuandio se hacen analisis en subdiviciones establecidas, cuando se aplica esta ventana, lo que sucede con la señal, es que esta es multiplicada en cada punto de la señal por un valor ponderado, haciendo que la transicion de la señal sea mas suave en el trnascurso del tiempo.
+
 ### Transformada de fourier
 La transformada de fourier (FFT) hace que la señal en el dominio del tiempo tenga la capacidad de pasar al dominio de la frecuencia. Su uso es fundamnetal a la hora de analizar los componentes de frecuencia de la señal, sobretodo cuando se observa su cambio a travez del tiempo o frecuencias dominantes en la señal. La funcion utilizada realiza el calculo de la FFT para que la señal pase del dominio del tiempo al de la frecuencia.
+
 ## Adquision de datos
 El proceso que se llevo a cabo para adquirir las señales EMG  del musculo del antebrazo fue en primer lugar poner los electrodos en la superficie de los musculos a evaluar. El sistemas de adquisicion que se utilizo fue por medio del DAQ, el cual permitio registrar la actividad electrica arrojada por el musculo durante la contraccio  continua hasta la fatiga. Los electrodos fueron conectados al modulo y al DAQ, por medio de Python se adquirio la señal con una frecuencia de muestreo de 2000 Hz por 60 segundos, se adquirieron 120,000 muestras en total, para capturar adecuadamente la señal sin perder datos importantes de la misma, monitoreando el musculo en tiempo real para corroborar que los datos adquiridos fueran correctos. Todo esto se configuro en el canal analogico Dev3/ai1 y los datos se fuardaon en un archivo CSV para ser procesados.
 
@@ -28,7 +30,46 @@ def adquirir_senal(channel="Dev3/ai1", fs=2000, duration=60, filename="senal_adq
     np.savetxt(filename, data, delimiter=",")
     return filename
 ```
-## Procesamiento de la señal
-Para el procesamiento de la señal, en primer lugar se cargaron los datos, leyendo la señal por medio de senal_adquirida2,xlsx, en donde se vio la siquiente señal EMG.
 
-![](https://github.com/gaby2804/Informe-Lab-1/blob/main/se%C3%B1al%20emg.jpg)
+## Procesamiento de la señal
+Para el procesamiento de la señal, en primer lugar se cargaron los datos, leyendo la señal por medio de senal_adquirida2,xlsx, en donde se vio la siquiente señal EMG. 
+
+![](https://github.com/gaby2804/LAB4/blob/main/SENAL.png)
+
+En la señal se detectaron los picos de la señal, los cuales fueron 53 impulsos significativos, por esta razon se produjeron 53 ventanas alrededor de los picos que se detectaron. El siguiente paso fue realizar los calculos de la FFT para cada ventana y se almacenaron los espectros obtenidos. Ademas, se  hicieron los debidos calculos estadisticos por medio del siguiente codigo:
+
+```pyton
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from scipy.fftpack import fft
+
+def procesar_senal(filepath="senal_adquirida2.xlsx"):
+    df = pd.read_excel(filepath)
+    senal = df.values.flatten()
+    return senal
+
+def calcular_fft(ventana):
+    N = len(ventana)
+    fft_result = np.abs(fft(ventana))[:N//2]
+    return fft_result
+```
+## Resultados y analisis
+
+
+## Conclusiones
+
+La adquisicion de datos se pudo llevar a cabo de manera efectiva con una frecuencia de muestreo conveniente para el tiempo de fatiga muscular del individuo, dando acceso a uan correcta captacion de la señal EMG. El debido procesamiento de dicha señal permitio evidenciar 53 picos significativos o de interes necesarios para ser analizados, por medio de la aplicacion de la FFT para poder realizar la extraccion de caracteristicas frecuenciales.
+
+Por medio de la implementacion de la transformada de fourier se pudo observar detalladamente la estructura frecuencial de los impulsos adquiridos, de esta manera completar el analisis estadistico con el calculo de la media y desviacion estandar de las ventanas creadas, para lograr caracterizar adecuadamente las variaciones de la señal y ver su comportamiento con un poco mas de profundidad.
+
+
+### Reequisitos:
+- python 3.9
+- matplotlib
+- nidaqmx
+- numpy
+- pandas
+- scipy
+- csv
+- time
