@@ -28,3 +28,7 @@ def adquirir_senal(channel="Dev3/ai1", fs=2000, duration=60, filename="senal_adq
     np.savetxt(filename, data, delimiter=",")
     return filename
 ```
+## Procesamiento de la señal
+Para el procesamiento de la señal, en primer lugar se cargaron los datos, leyendo la señal por medio de senal_adquirida2,xlsx, en donde se vio la siquiente señal EMG.
+
+![](https://github.com/gaby2804/Informe-Lab-1/blob/main/se%C3%B1al%20emg.jpg)
