@@ -7,4 +7,24 @@ La ventana Hamming es una funcion matematica, util para procesar las señales y 
 ### Transformada de fourier
 La transformada de fourier (FFT) hace que la señal en el dominio del tiempo tenga la capacidad de pasar al dominio de la frecuencia. Su uso es fundamnetal a la hora de analizar los componentes de frecuencia de la señal, sobretodo cuando se observa su cambio a travez del tiempo o frecuencias dominantes en la señal. La funcion utilizada realiza el calculo de la FFT para que la señal pase del dominio del tiempo al de la frecuencia.
 ## Adquision de datos
-El proceso que se llevo a cabo para adquirir las señales EMG  del musculo del antebrazo fue en primer lugar poner los electrodos en la superficie de los musculos a evaluar. El sistemas de adquisicion que se utilizo fue por medio del DAQ, el cual permitio registrar la actividad electrica arrojada por el musculo durante la contraccio  continua hasta la fatiga. Los electrodos fueron conectados al modulo y al DAQ, por medio de Python se establecio una frecuencia de muestreo de,,,, para capturar adecuadamente la señal sin perder datos importantes de la misma, monitoreando el musculo en tiempo real para corroborar que los datos adquiridos fueran correctos.
+El proceso que se llevo a cabo para adquirir las señales EMG  del musculo del antebrazo fue en primer lugar poner los electrodos en la superficie de los musculos a evaluar. El sistemas de adquisicion que se utilizo fue por medio del DAQ, el cual permitio registrar la actividad electrica arrojada por el musculo durante la contraccio  continua hasta la fatiga. Los electrodos fueron conectados al modulo y al DAQ, por medio de Python se adquirio la señal con una frecuencia de muestreo de 2000 Hz por 60 segundos, se adquirieron 120,000 muestras en total, para capturar adecuadamente la señal sin perder datos importantes de la misma, monitoreando el musculo en tiempo real para corroborar que los datos adquiridos fueran correctos. Todo esto se configuro en el canal analogico Dev3/ai1 y los datos se fuardaon en un archivo CSV para ser procesados.
+
+```pyton
+import nidaqmx
+import numpy as np
+import time
+import csv
+
+def adquirir_senal(channel="Dev3/ai1", fs=2000, duration=60, filename="senal_adquirida.csv"):
+    samples = fs * duration
+    data = []
+    with nidaqmx.Task() as task:
+        task.ai_channels.add_ai_voltage_chan(channel)
+        task.timing.cfg_samp_clk_timing(rate=fs, sample_mode=nidaqmx.constants.AcquisitionType.CONTINUOUS)
+        task.start()
+        for _ in range(duration):
+            data.extend(task.read(number_of_samples_per_channel=fs, timeout=5))
+        task.stop()
+    np.savetxt(filename, data, delimiter=",")
+    return filename
+```
