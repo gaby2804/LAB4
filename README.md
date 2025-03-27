@@ -1,6 +1,7 @@
 # Procesamiennto de una señal electromiografica asociada a la fatiga muscular.
 ## Introducción
 La electromiografia (EMG) mide y analiza la actividad electrica de los musculos, la cual es informacion importante en el diagnosticos y monitoreo de diferentes condiciones neuromusculares. Por medio de este laboratorio, se realizo la captura de la señal EMG emitida por el musculo del antebrazo, por medio de la colocacion de electrodos. Posterior a este proceso, se procesaron las señales para detectar cuando se evidenciaba la fatiga muscular, por medio de tecnicas de filtrado, analisis espectral, los cuales permitieron observar la evolucion de la señal en el tiempo.
+
 ## Ventana Hamming
 La ventana Hamming es una funcion matematica, util para procesar las señales y minimizar las distorsiones causadas por la discontinuidad en los bordes de la señal analizada cuando necesitamos dividirla. La ventana hace que se dismuya el efecto de fuga espectral o perdida de datos, que puede ocurrir cuandio se hacen analisis en subdiviciones establecidas, cuando se aplica esta ventana, lo que sucede con la señal, es que esta es multiplicada en cada punto de la señal por un valor ponderado, haciendo que la transicion de la señal sea mas suave en el trnascurso del tiempo.
 ##Transformada de fourier
