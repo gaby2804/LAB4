@@ -75,11 +75,10 @@ Dado que el estadístico de prueba no está en la región crítica, no hay sufic
 
 ## Conclusiones
 
-La adquisicion de datos se pudo llevar a cabo de manera efectiva con una frecuencia de muestreo conveniente para el tiempo de fatiga muscular del individuo, dando acceso a uan correcta captacion de la señal EMG. El debido procesamiento de dicha señal permitio evidenciar 52 picos significativos o de interes necesarios para ser analizados, por medio de la aplicacion de la FFT para poder realizar la extraccion de caracteristicas frecuenciales.
+La adquisicion de datos se pudo llevar a cabo de manera efectiva con una frecuencia de muestreo conveniente para el tiempo de fatiga muscular del individuo, dando acceso a una correcta captacion de la señal EMG. El debido procesamiento de dicha señal permitio evidenciar 52 picos significativos o de interes necesarios para ser analizados, por medio de la aplicacion de la FFT para poder realizar la extraccion de caracteristicas frecuenciales.
 
-Por medio de la implementacion de la transformada de fourier se pudo observar detalladamente la estructura frecuencial de los impulsos adquiridos, de esta manera completar el analisis estadistico con el calculo de la media y desviacion estandar de las ventanas creadas, para lograr caracterizar adecuadamente las variaciones de la señal y ver su comportamiento con un poco mas de profundidad.
+Por medio de la implementacion de la transformada de fourier se pudo observar detalladamente la estructura frecuencial de los impulsos adquiridos, de esta manera completar el analisis estadistico con el calculo de la media y desviacion estandar de las ventanas creadas, el análisis de la señal electromiográfica nos permitió observar en detalle la actividad eléctrica del músculo del antebrazo y detectar los momentos clave de contracción. Sin embargo, los resultados obtenidos sugieren que, dentro del tiempo evaluado, no hubo una diferencia lo suficientemente significativa como para concluir que se alcanzó la fatiga muscular.
 
-El análisis de la señal electromiográfica nos permitió observar en detalle la actividad eléctrica del músculo del antebrazo y detectar los momentos clave de contracción. Sin embargo, los resultados obtenidos sugieren que, dentro del tiempo evaluado, no hubo una diferencia lo suficientemente significativa como para concluir que se alcanzó la fatiga muscular.
 ### Reequisitos:
 - python 3.9
 - matplotlib
