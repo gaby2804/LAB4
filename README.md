@@ -36,7 +36,7 @@ Para el procesamiento de la señal, en primer lugar se cargaron los datos, leyen
 
 ![](https://github.com/gaby2804/LAB4/blob/main/SENAL.png)
 
-En la señal se detectaron los picos de la señal, los cuales fueron 53 impulsos significativos, por esta razon se produjeron 53 ventanas alrededor de los picos que se detectaron. El siguiente paso fue realizar los calculos de la FFT para cada ventana y se almacenaron los espectros obtenidos. Ademas, se  hicieron los debidos calculos estadisticos por medio del siguiente codigo:
+En la señal se detectaron los picos de la señal, los cuales fueron 52 impulsos significativos, por esta razon se produjeron 52 ventanas alrededor de los picos que se detectaron. El siguiente paso fue realizar los calculos de la FFT para cada ventana y se almacenaron los espectros obtenidos. Ademas, se  hicieron los debidos calculos estadisticos por medio del siguiente codigo:
 
 ```pyton
 import numpy as np
@@ -75,7 +75,7 @@ Dado que el estadístico de prueba no está en la región crítica, no hay sufic
 
 ## Conclusiones
 
-La adquisicion de datos se pudo llevar a cabo de manera efectiva con una frecuencia de muestreo conveniente para el tiempo de fatiga muscular del individuo, dando acceso a uan correcta captacion de la señal EMG. El debido procesamiento de dicha señal permitio evidenciar 53 picos significativos o de interes necesarios para ser analizados, por medio de la aplicacion de la FFT para poder realizar la extraccion de caracteristicas frecuenciales.
+La adquisicion de datos se pudo llevar a cabo de manera efectiva con una frecuencia de muestreo conveniente para el tiempo de fatiga muscular del individuo, dando acceso a uan correcta captacion de la señal EMG. El debido procesamiento de dicha señal permitio evidenciar 52 picos significativos o de interes necesarios para ser analizados, por medio de la aplicacion de la FFT para poder realizar la extraccion de caracteristicas frecuenciales.
 
 Por medio de la implementacion de la transformada de fourier se pudo observar detalladamente la estructura frecuencial de los impulsos adquiridos, de esta manera completar el analisis estadistico con el calculo de la media y desviacion estandar de las ventanas creadas, para lograr caracterizar adecuadamente las variaciones de la señal y ver su comportamiento con un poco mas de profundidad.
 
