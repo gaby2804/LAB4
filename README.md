@@ -69,7 +69,7 @@ df = min(n1 - 1, n2 - 1)
 alpha_01 = stats.t.ppf(1 - 0.005, df=df)
 
 ```
-## Resultados y analisis
+![](https://github.com/gaby2804/LAB4/blob/main/SENAL.png)
 
 
 ## Conclusiones
