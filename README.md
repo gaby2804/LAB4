@@ -54,7 +54,7 @@ def calcular_fft(ventana):
     fft_result = np.abs(fft(ventana))[:N//2]
     return fft_result
 ```
-Después de realizar los cálculos en el dominio de la frecuencia, se implementó una prueba de hipótesis con el siguiente fragmento de código para determinar si los impulsos llegaron a la fatiga, considerando sus medias y desviaciones estándar. Se estableció un nivel de significancia de α = 0.01 con el objetivo de garantizar un alto rigor estadístico y reducir la probabilidad de cometer un error tipo I. La prueba se basa en la distribución t de Student, ideal cuando el tamaño de las muestras es limitado.
+Después de realizar los cálculos en el dominio de la frecuencia, se implementó una prueba de hipótesis de dos colas con el siguiente fragmento de código para determinar si los impulsos llegaron a la fatiga, considerando sus medias y desviaciones estándar. Se estableció un nivel de significancia de α = 0.01 con el objetivo de garantizar un alto rigor estadístico y reducir la probabilidad de cometer un error tipo I. La prueba se basa en la distribución t de Student, ideal cuando el tamaño de las muestras es limitado.
 ```pyton
 
 n1 = n_muestras[0]
