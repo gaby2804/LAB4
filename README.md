@@ -69,7 +69,8 @@ df = min(n1 - 1, n2 - 1)
 alpha_01 = stats.t.ppf(1 - 0.005, df=df)
 
 ```
-![](https://github.com/gaby2804/LAB4/blob/main/SENAL.png)
+Dado que el estadístico de prueba no está en la región crítica, no hay suficiente evidencia para rechazar la hipótesis nula. Es decir, no podemos concluir que se haya alcanzado la fatiga con el nivel de significancia del 1%. 
+![](https://github.com/gaby2804/LAB4/blob/main/Estadisticos.PNG)
 
 
 ## Conclusiones
@@ -78,7 +79,7 @@ La adquisicion de datos se pudo llevar a cabo de manera efectiva con una frecuen
 
 Por medio de la implementacion de la transformada de fourier se pudo observar detalladamente la estructura frecuencial de los impulsos adquiridos, de esta manera completar el analisis estadistico con el calculo de la media y desviacion estandar de las ventanas creadas, para lograr caracterizar adecuadamente las variaciones de la señal y ver su comportamiento con un poco mas de profundidad.
 
-
+El análisis de la señal electromiográfica nos permitió observar en detalle la actividad eléctrica del músculo del antebrazo y detectar los momentos clave de contracción. Sin embargo, los resultados obtenidos sugieren que, dentro del tiempo evaluado, no hubo una diferencia lo suficientemente significativa como para concluir que se alcanzó la fatiga muscular.
 ### Reequisitos:
 - python 3.9
 - matplotlib
